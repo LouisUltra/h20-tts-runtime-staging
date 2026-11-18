@@ -194,7 +194,7 @@ class RequestHandler(BaseHTTPRequestHandler):
             raise ValueError("request body must be valid UTF-8 JSON") from exc
 
     def do_GET(self) -> None:
-        if self.path in {"/healthz", "/readyz", "/v1/health"}:
+        if self.path in {"/health", "/healthz", "/readyz", "/v1/health"}:
             health = self.runtime.health()
             status = HTTPStatus.OK if health["artifact_ready"] else HTTPStatus.SERVICE_UNAVAILABLE
             self._write_json(status, health)
