@@ -11,16 +11,13 @@ RUN python -m pip install --no-cache-dir --no-deps qwen-tts==0.1.1 \
     && python -m pip install --no-cache-dir \
         "transformers==4.57.3" \
         "accelerate==1.12.0" \
-        gradio \
         librosa \
         soundfile \
         sox \
         onnxruntime \
-        einops \
-        fastapi \
-        "uvicorn[standard]"
+        einops
 
-COPY tts_service.py /app/tts_service.py
+COPY tools/h20-training/tts_service.py /app/tts_service.py
 
 ENV QWEN_TTS_MODEL_DIR=/models/qwen3-tts-0.6b-customvoice \
     QWEN_TTS_ATTN=eager \
