@@ -2,6 +2,8 @@ FROM artifactory.devops.xiaohongshu.com/media/ngc/pytorch:24.02-py3.10-torch-2.3
 
 ENV PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=1 \
+    PIP_INDEX_URL=http://pypi.devops.xiaohongshu.com/simple \
+    PIP_TRUSTED_HOST=pypi.devops.xiaohongshu.com \
     TOKENIZERS_PARALLELISM=false
 
 # Keep the platform's CUDA/PyTorch pair intact.  qwen-tts is installed
